@@ -1,68 +1,15 @@
-const rock = document.getElementsByClassName("rock")[0];
-const papper = document.getElementsByClassName("papper")[0];
-const scissors = document.getElementsByClassName("scissors")[0];
-const results = document.getElementById("results");
-let game = ["ROCK", "papper", "SCISSORS"];
-let random = Math.floor(Math.random() * game.length);
+const rock = document.querySelector(".rock");
+const papper = document.querySelector(".papper");
+const scissors = document.querySelector(".scissors");
+const imgRock = document.querySelector(".img__rock");
+const imgScissors = document.querySelector(".img__scissors");
+const imgPapper = document.querySelector(".img__papper");
+const playerChoice = document.querySelector(".results__player__choice");
+const computerChoice = document.querySelector(".results__computer__choice");
+console.log(playerChoice);
 
-function playRound(input, game) {
-  if (input.toLowerCase() == "rock" && game == "ROCK") {
-    results.insertAdjacentHTML(
-      "beforeend",
-      "No one wins! You chosed " + input + " and computer chosed " + game
-    );
-  } else if (input.toLowerCase() == "rock" && game == "papper") {
-    results.insertAdjacentHTML(
-      "beforeend",
-      "You lose! You chosed " + input + " and computer chosed " + game
-    );
-  } else if (input.toLowerCase() == "rock" && game == "SCISSORS") {
-    results.insertAdjacentHTML(
-      "beforeend",
-      "You won! You chosed " + input + " and computer chosed " + game
-    );
-  } else if (input.toLowerCase() == "papper" && game == "ROCK") {
-    results.insertAdjacentHTML(
-      "beforeend",
-      "You won! You chosed " + input + " and computer chosed" + game
-    );
-  } else if (input.toLowerCase() == "papper" && game == "papper") {
-    results.insertAdjacentHTML(
-      "beforeend",
-      "No one wins! You chosed " + input + " and computer chosed " + game
-    );
-  } else if (input.toLowerCase() == "papper" && game == "SCISSORS") {
-    results.insertAdjacentHTML(
-      "beforeend",
-      "You lose! You chosed " + input + " and computer chosed " + game
-    );
-  } else if (input.toLowerCase() == "scissors" && game == "ROCK") {
-    results.insertAdjacentHTML(
-      "beforeend",
-      "You lose! You chosed " + input + " and computer chosed " + game
-    );
-  } else if (input.toLowerCase() == "scissors" && game == "papper") {
-    results.insertAdjacentHTML(
-      "beforeend",
-      "You won! You chosed " + input + " and computer chosed" + game
-    );
-  } else if (input.toLowerCase() == "scissors" && game == "SCISSORS") {
-    results.insertAdjacentHTML(
-      "beforeend",
-      "No one wins! You chosed " + input + " and computer chosed " + game
-    );
-  }
-}
+// display player choice into "your choice" field
+playerChoice.src = imgScissors.src;
 
-rock.addEventListener("click", function () {
-  playRound(rock.textContent, game[random]);
-});
-
-scissors.addEventListener("click", function () {
-  playRound(scissors.textContent, game[random]);
-});
-
-papper.addEventListener("click", function () {
-  playRound(papper.textContent, game[random]);
-});
-// playRound(input, game[random]);
+//display computer choice into "computer choice" field
+computerChoice.src = imgRock.src;

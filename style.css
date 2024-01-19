@@ -30,7 +30,25 @@
     grid-template-rows: 2fr 2fr repeat(2, 1fr);
     align-self: center;
     justify-content: center;
+    position: relative;
 }
+
+.main__content .img__rock {
+    width: 100%;
+    height: 100%;
+    background-color: #B8B893;
+}
+
+.main__content .img__papper {
+    width: 100%;
+    height: 100%;
+}
+
+.main__content .img__scissors{
+    width: 100%;
+    height: 100%;
+}
+
 
 .main__content button {
     width: 70%;
@@ -40,6 +58,98 @@
     justify-content: center;
     place-self: center;
 }
+
+#results {
+    border: 3px solid blue;
+    position: relative;
+    width: 100%;
+    height: 50%;
+    position: absolute;
+    top: 50%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+
+.results__player {
+    position: relative;
+    border: 2px solid red;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.results__player--1{
+    display: flex;
+    width: 50%;
+}
+
+.results__player__choice {
+    width: 50%;
+    height: 50%;
+}
+
+.results__player__score {
+    font-size: 1.5rem;
+    text-transform: uppercase;
+}
+
+.results__player__score--1{
+    width: 100%;
+    border: 2px solid rosybrown;
+}
+
+.winner--1 {
+    position: absolute;
+    top: 90%;
+    left: 35%;
+    height: max-content;
+    z-index: 100;
+    display: none;
+}
+
+.results__computer {
+    position: relative;
+    width: 100%;
+    border: 2px solid green;
+    display: flex;
+    justify-content: center;
+}
+
+.results__computer__choice{
+    width: 50%;
+    height: 50%;
+}
+
+.results__player__computer {
+    font-size: 1.5rem;
+    text-transform: uppercase;
+}
+
+.winner--2 {
+    position: absolute;
+    top: 90%;
+    left: 35%;
+    height: max-content;
+    z-index: 100;
+    display: none;
+}
+
+.results__score {
+    grid-column: 1/-1;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid blue;
+}
+
+
+
+
+
+
+
+
 
 .footer {
     height: 5vh;
