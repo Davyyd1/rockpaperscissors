@@ -4,7 +4,7 @@
 }
 
 .top {
-    background-image: linear-gradient(to right, rgba(197, 77, 219), #fff);
+    background-image: linear-gradient(to right, #3e0339, #d53d0a);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -18,35 +18,100 @@
     justify-content: center;
     align-items: center;
     height: 87vh;
-    background-image: linear-gradient(to right, #fff, orangered);
+    background-image: linear-gradient(to right, #3e0339, #d53d0a);
 }
 
 .main__content {
-    border: 3px solid black;
     height: 87vh;
     width: 50vw;
     display: grid;   
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 2fr 2fr repeat(2, 1fr);
+    grid-template-rows: 2fr 0.5fr 2fr repeat(2, 1fr);
     align-self: center;
     justify-content: center;
     position: relative;
 }
 
+.winner__announcement {
+    grid-column: 1 / -1;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    transition: all .2s;
+    transition: all .2s;
+    background-image: linear-gradient(to top, #8d396a, #3e0339);
+    color: #fff;
+    border-radius: 5rem;
+}
+
+.winner__announcement:hover {
+}
+
+.main__content .rock {
+    transition: all .2s;
+    cursor: pointer;
+}
+
+.main__content .rock:hover {
+    transition: all .2s;
+    transform: translateY(-3px);
+}
+
+.main__content .rock:active {
+    transform: translateY(3px);
+}
+
+.main__content .scissors {
+    transition: all .3s;
+}
+
+.main__content .scissors:hover {
+    transition: all .2s;
+    box-shadow: 0 0 25px 20px rgba(0, 0, 0, 0.3);
+    transform: scale(1.03);
+}
+
+.main__content .scissors:active {
+    transition: all .3s;
+    box-shadow: 0 0 12.5px 10px rgba(0, 0, 0, 0.3);
+    transform: scale(0.90);
+}
+
+.main__content .papper {
+    transition: all .3s;
+}
+
+.main__content .papper:hover {
+    transition: all .2s;
+    box-shadow: 0 0 25px 20px rgba(0, 0, 0, 0.3);
+    transform: scale(1.03);
+}
+
+.main__content .papper:active {
+    transition: all .3s;
+    box-shadow: 0 0 12.5px 10px rgba(0, 0, 0, 0.3);
+    transform: scale(0.90);
+}
+
 .main__content .img__rock {
     width: 100%;
     height: 100%;
-    background-color: #B8B893;
+    background-color: #4b4448;
 }
 
 .main__content .img__papper {
     width: 100%;
     height: 100%;
+    background-color:#4B4448;
+
+    
 }
 
 .main__content .img__scissors{
     width: 100%;
     height: 100%;
+    background-color:#4B4448;
 }
 
 
@@ -60,7 +125,6 @@
 }
 
 #results {
-    border: 3px solid blue;
     position: relative;
     width: 100%;
     height: 50%;
@@ -71,17 +135,23 @@
     grid-template-rows: 1fr 1fr;
 }
 
+.results__header {
+    color: #fff;
+}
+
 .results__player {
     position: relative;
-    border: 2px solid red;
     width: 100%;
     display: flex;
     justify-content: center;
+    
 }
 
 .results__player--1{
     display: flex;
-    width: 50%;
+    width: 100%;
+    border-bottom: 2px solid orangered;
+
 }
 
 .results__player__choice {
@@ -90,13 +160,21 @@
 }
 
 .results__player__score {
+    width: 100%;
     font-size: 1.5rem;
     text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
 }
 
 .results__player__score--1{
     width: 100%;
-    border: 2px solid rosybrown;
+    display: flex;
+    justify-content: center;
+    font-size: 3rem;
+    color: #fff;
 }
 
 .winner--1 {
@@ -111,9 +189,12 @@
 .results__computer {
     position: relative;
     width: 100%;
-    border: 2px solid green;
     display: flex;
     justify-content: center;
+}
+
+.results__computer--1 {
+    display: flex;
 }
 
 .results__computer__choice{
@@ -122,8 +203,21 @@
 }
 
 .results__player__computer {
+    width: 50%;
     font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-transform: uppercase;
+    color: #fff;
+}
+.results__computer__score--1{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    color: #fff;
 }
 
 .winner--2 {
@@ -140,20 +234,11 @@
     gap: 2rem;
     justify-content: center;
     align-items: center;
-    border: 2px solid blue;
 }
-
-
-
-
-
-
-
-
 
 .footer {
     height: 5vh;
-    background-image: linear-gradient(to right, brown, #fff);
+    background-image: linear-gradient(to right, #fdfdfd, #576e67);
     display: flex;
     justify-content: center;
     align-items: center;
