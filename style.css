@@ -10,7 +10,8 @@
     align-items: center;
     height: 8vh;
     font-weight: 600;
-    color: rgb(255, 255, 255);
+    font-family: Copperplate;
+    color: rgb(234, 240, 250);
 }
 
 .main {
@@ -40,7 +41,7 @@
     font-size: 2rem;
     transition: all .2s;
     transition: all .2s;
-    background-image: linear-gradient(to top, #8d396a, #3e0339);
+    background-image: linear-gradient(to top, #480342, #0a4c78);
     color: #fff;
     border-radius: 5rem;
 }
@@ -64,6 +65,7 @@
 
 .main__content .scissors {
     transition: all .3s;
+    cursor: pointer;
 }
 
 .main__content .scissors:hover {
@@ -80,6 +82,7 @@
 
 .main__content .papper {
     transition: all .3s;
+    cursor: pointer;
 }
 
 .main__content .papper:hover {
@@ -97,13 +100,13 @@
 .main__content .img__rock {
     width: 100%;
     height: 100%;
-    background-color: #4b4448;
+    background-color:#0f5381;
 }
 
 .main__content .img__papper {
     width: 100%;
     height: 100%;
-    background-color:#4B4448;
+    background-color:#0f5381;
 
     
 }
@@ -111,7 +114,7 @@
 .main__content .img__scissors{
     width: 100%;
     height: 100%;
-    background-color:#4B4448;
+    background-color:#0f5381
 }
 
 
@@ -238,12 +241,13 @@
 
 .footer {
     height: 5vh;
-    background-image: linear-gradient(to right, #fdfdfd, #576e67);
+    background-image: linear-gradient(to right, #36022c, #ff0404);
     display: flex;
     justify-content: center;
     align-items: center;
     font-family: 'Oswald', sans-serif;
     font-size: 2rem;
+    color: #cd0000;
 }
 
 .footer .link {

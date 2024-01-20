@@ -8,6 +8,8 @@ const playerChoice = document.querySelector(".results__player__choice");
 const computerChoice = document.querySelector(".results__computer__choice");
 const playerScore = document.querySelector(".results__player__score--1");
 const computerScore = document.querySelector(".results__computer__score--1");
+const winner = document.querySelector(".winner");
+const winnerAnnouncement = document.querySelector(".winner__announcement");
 
 let game = [rock, papper, scissors];
 let random = Math.floor(Math.random() * game.length);
@@ -29,12 +31,27 @@ const showPlayersChoices = function (pathPlayer, pathComputer) {
   computerChoice.src = pathComputer;
 };
 
+const playRound = function (item) {
+  if (item == game[random].className) {
+    winnerAnnouncement.style.backgroundImage = "none";
+    winnerAnnouncement.style.backgroundColor = "#FEC10B";
+    winner.insertAdjacentHTML("afterbegin", "Equality");
+  }
+  if (item == "rock" && game[random].className == "scissors") {
+    alert("You win");
+  }
+  if (item == "rock" && game[random].className == "papper") {
+    alert("You lose");
+  }
+};
+
 const pressButtons = function (item) {
   item.addEventListener("click", function (e) {
     showPlayersChoices(
       e.target.attributes.src.nodeValue,
       game[random].children[0].attributes.src.nodeValue
     );
+    playRound(item.classList[0]);
     playerChoice.style.display = "flex";
     computerChoice.style.display = "flex";
   });
@@ -42,6 +59,7 @@ const pressButtons = function (item) {
 pressButtons(rock);
 pressButtons(papper);
 pressButtons(scissors);
+
 // display player choice into "your choice" field
 
 //display computer choice into "computer choice" field
