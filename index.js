@@ -12,8 +12,8 @@ const winner = document.querySelector(".winner");
 const winnerAnnouncement = document.querySelector(".winner__announcement");
 
 let game = [rock, papper, scissors];
-let random = Math.floor(Math.random() * game.length);
-// console.log(game[random].children[0].attributes.src.nodeValue);
+// let random = Math.floor(Math.random() * game.length);
+let computerChoiceClass;
 
 let scorePlayer = 0;
 let scoreComputer = 0;
@@ -31,27 +31,52 @@ const showPlayersChoices = function (pathPlayer, pathComputer) {
   computerChoice.src = pathComputer;
 };
 
-const playRound = function (item) {
-  if (item == game[random].className) {
-    winnerAnnouncement.style.backgroundImage = "none";
-    winnerAnnouncement.style.backgroundColor = "#FEC10B";
-    winner.insertAdjacentHTML("afterbegin", "Equality");
+const showResults = function (color, result) {
+  winnerAnnouncement.style.backgroundImage = "none";
+  winnerAnnouncement.style.backgroundColor = color;
+  winner.insertAdjacentHTML("afterbegin", result);
+};
+
+const scoreIncrease = function (player, computer) {
+  scorePlayer = player;
+  scoreComputer = computer;
+};
+
+const playRound = function (item, computerPlay) {
+  if (item == computerPlay.className) {
+    showResults("#FEC10B", "Equality");
+    scoreIncrease(1, 1);
   }
-  if (item == "rock" && game[random].className == "scissors") {
-    alert("You win");
+
+  if (item == "rock" && computerPlay.className == "scissors") {
+    showResults("#0ead43", "You won!");
   }
-  if (item == "rock" && game[random].className == "papper") {
-    alert("You lose");
+
+  if (item == "rock" && computerPlay.className == "papper") {
+    showResults("#C5370F", "You lose!");
+  }
+  if (item == "papper" && computerPlay.className == "rock") {
+    showResults("#0ead43", "You won!");
+  }
+  if (item == "papper" && computerPlay.className == "scissors") {
+    showResults("#C5370F", "You lose!");
+  }
+  if (item == "scissors" && computerPlay.className == "papper") {
+    showResults("#0ead43", "You won!");
+  }
+  if (item == "scissors" && computerPlay.className == "rock") {
+    showResults("#C5370F", "You lose!");
   }
 };
 
 const pressButtons = function (item) {
   item.addEventListener("click", function (e) {
+    computerChoiceClass = game[Math.floor(Math.random() * game.length)];
+    playRound(item.classList[0], computerChoiceClass);
     showPlayersChoices(
       e.target.attributes.src.nodeValue,
-      game[random].children[0].attributes.src.nodeValue
+      computerChoiceClass.children[0].attributes.src.nodeValue
     );
-    playRound(item.classList[0]);
     playerChoice.style.display = "flex";
     computerChoice.style.display = "flex";
   });
