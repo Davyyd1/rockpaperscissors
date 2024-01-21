@@ -10,9 +10,9 @@ const playerScore = document.querySelector(".results__player__score--1");
 const computerScore = document.querySelector(".results__computer__score--1");
 const winner = document.querySelector(".winner");
 const winnerAnnouncement = document.querySelector(".winner__announcement");
+const results = document.querySelector("#results");
 
-let game = [rock, papper, scissors];
-// let random = Math.floor(Math.random() * game.length);
+const game = [rock, papper, scissors];
 let computerChoiceClass;
 
 let scorePlayer = 0;
@@ -46,7 +46,13 @@ const scoreIncreaseC = function () {
   computerScore.textContent = scoreComputer;
 };
 
+const resetDisplayResults = function () {
+  winner.textContent = "";
+};
+
 const playRound = function (item, computerPlay) {
+  resetDisplayResults();
+
   if (item == computerPlay.className) {
     showResults("#FEC10B", "Equality");
     scoreIncreaseP();
