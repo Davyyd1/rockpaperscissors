@@ -37,35 +37,46 @@ const showResults = function (color, result) {
   winner.insertAdjacentHTML("afterbegin", result);
 };
 
-const scoreIncrease = function (player, computer) {
-  scorePlayer = player;
-  scoreComputer = computer;
+const scoreIncreaseP = function () {
+  scorePlayer++;
+  playerScore.textContent = scorePlayer;
+};
+const scoreIncreaseC = function () {
+  scoreComputer++;
+  computerScore.textContent = scoreComputer;
 };
 
 const playRound = function (item, computerPlay) {
   if (item == computerPlay.className) {
     showResults("#FEC10B", "Equality");
-    scoreIncrease(1, 1);
+    scoreIncreaseP();
+    scoreIncreaseC();
   }
 
   if (item == "rock" && computerPlay.className == "scissors") {
     showResults("#0ead43", "You won!");
+    scoreIncreaseP();
   }
 
   if (item == "rock" && computerPlay.className == "papper") {
     showResults("#C5370F", "You lose!");
+    scoreIncreaseC();
   }
   if (item == "papper" && computerPlay.className == "rock") {
     showResults("#0ead43", "You won!");
+    scoreIncreaseP();
   }
   if (item == "papper" && computerPlay.className == "scissors") {
     showResults("#C5370F", "You lose!");
+    scoreIncreaseC();
   }
   if (item == "scissors" && computerPlay.className == "papper") {
     showResults("#0ead43", "You won!");
+    scoreIncreaseP();
   }
   if (item == "scissors" && computerPlay.className == "rock") {
     showResults("#C5370F", "You lose!");
+    scoreIncreaseC();
   }
 };
 
