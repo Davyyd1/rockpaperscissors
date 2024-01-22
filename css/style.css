@@ -257,8 +257,9 @@ html {
     justify-content: center;
     align-items: center;
     font-family: 'Oswald', sans-serif;
-    font-size: 2rem;
+    font-size: 1.6rem;
     color: #fff;
+    overflow: hidden;
 }
 
 .footer .link {
